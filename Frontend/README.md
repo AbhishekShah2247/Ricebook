@@ -1,19 +1,3 @@
-# HW4 ABHISHEKSHAH2247
+Project URL: https://deafening-ricebook.surge.sh
 
-# NET ID
-  ams35
-
-# NAME
-  Abhishek Shah
-
-# URL
- 
- For hw8:
-{
-  "netid": "ams35",
-  "backend": "https://hw8-backend-ams35-comp531.herokuapp.com/",
-  "frontend": "https://deafening-ricebook.surge.sh"
-}
-
-NOTE: USED 2 SLIP DAYS
-
+Use it like your own social media application
