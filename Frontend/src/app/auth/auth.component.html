@@ -1,0 +1,43 @@
+<div class="container" style="overflow-y: hidden;">
+  <div class="row" style="padding: 0px; margin: 50px">
+    <div class="col-lg-4 col-md-12 justify-content-center align-self-center" style="padding: 0px">
+      <div class="card" style="margin-top: 50px">
+        <div class="card-header" style="border-top: 2px solid #2e6da4;">
+          <h1 style = "text-align: center; padding: 0%; margin: 0%;"><b><mat-icon>layers</mat-icon>Login To InstaRice</b></h1>
+        </div>
+        <form clrForm [formGroup]="loginForm" style = "width: 100%; text-align: center; border: 2px solid #2e6da4">
+            <div class="form-control" style = "margin-top: 48px; border: none">
+              <label for="username" class = "col-5" style = "text-align: left;">Username</label>
+              <input type="text" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="username" formControlName="username" class="input col-7"/>
+            </div>
+            <div class="form-control" style = "margin-top: 48px; border: none">
+              <label for="password" class="col-5" style = "text-align: left;">Password</label>
+              <input type="password" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="password" formControlName="password" class="input col-7"/>
+            </div>
+            <div class="form-control" style = "margin-top: 40px; border: none">
+              <button class="btn btn-primary col-12" style = "text-align: center;" (click)="login()">
+                Login
+              </button>
+            </div>
+            <br>
+        </form>
+        <button mat-button style="padding: 1rem;">
+          <mat-icon style="width: 50px; height:30px" svgIcon="logo"></mat-icon> <a href = "https://hw8-backend-ams35-comp531.herokuapp.com/auth/google">Login With Google</a>
+          <!-- <mat-icon style="width: 50px; height:30px" svgIcon="logo"></mat-icon> <a href = "http://localhost:3000/auth/google">Login With Google</a> -->
+          <!-- <a href = "http://localhost:3000/auth/google"></a> -->
+        </button>
+      </div>
+      <br>
+      <div *ngIf="incompleteForm" class="alert alert-danger" style="text-align: center;">
+        <strong>Form Incomplete!</strong>&nbsp;Please Fill all fields
+      </div>
+      <div *ngIf="invalidCredentials" class="alert alert-danger" style="text-align: center;">
+        <strong>Unable to login!</strong>&nbsp;Invalid Credentials!
+      </div>
+    </div>
+    <div class="col-lg-1 col-md-12 justify-content-center align-self-center" style="padding: 0px"></div>
+    <div class="col-lg-7 col-md-12 justify-content-center align-self-center" style="padding: 0px">
+      <app-registration></app-registration>
+    </div>
+  </div>
+</div>

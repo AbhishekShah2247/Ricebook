@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Validate Profile functionality" errors="0" tests="4" failures="0" time="0.351" timestamp="2021-11-18T00:41:34">
+  <testcase classname="Validate Profile functionality" name="should login user for profile tests" time="0.069"></testcase>
+  <testcase classname="Validate Profile functionality" name="should update headline and verify the change" time="0.096"></testcase>
+  <testcase classname="Validate Profile functionality" name="should get headline with username as param" time="0.092"></testcase>
+  <testcase classname="Validate Profile functionality" name="should get headline without param" time="0.094"></testcase>
+</testsuite>
+</testsuites>

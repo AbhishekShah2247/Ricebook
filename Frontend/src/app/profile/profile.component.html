@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row" style="margin: 10px">
+    <div class="col-lg-4 col-md-12 mb-3 justify-content-center align-self-center">
+      <div class="card">
+        <div class="fs-5 fw-light card-header">
+          {{this.displayName}}
+        </div>
+        <div class="card-block">
+          <div class="card-title" *ngIf="this.profileImage != ''">
+            <img class="profile-pic card-img-top" src={{this.profileImage}}>
+          </div>
+          <div class="card-body">
+              <input class="form-check-input col-md-12" (change)="selectFile($event)" id="file_pic" type="file">
+              <br>
+              <br>
+              <input type="submit" (click)="changeAvatar()" class="btn btn-primary col-12" id="update_pic">
+              <button mat-button style="padding: 1rem;" *ngIf="this.gid == ''">
+                <a style="width: 100%;" href = "https://hw8-backend-ams35-comp531.herokuapp.com/auth/google"><mat-icon svgIcon="logo"></mat-icon> &nbsp;&nbsp;&nbsp;&nbsp;Link account with Google</a>
+                <!-- <a style="width: 100%;" href = "http://localhost:3000/auth/google"><mat-icon svgIcon="logo"></mat-icon> &nbsp;&nbsp;&nbsp;&nbsp;Link account with Google</a> -->
+                <!-- <a href = "https://hw8-backend-ams35-comp531.herokuapp.com/auth/google"></a> -->
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 justify-content-center align-self-center"></div>
+    <div class="col-6 justify-content-center align-self-center">
+
+      <form [formGroup]="updateProfileForm" id="profile_form">
+
+        <div *ngIf="display_alert_password" class="alert alert-danger" role="alert">
+          Passwords don't match!
+        </div>
+        <div *ngIf="this.errorUpdate" [innerHTML]="displayErrorString" class="alert alert-danger" role="alert">
+        </div>
+        <div *ngIf="display_update" [innerHTML]="str_update" class="alert alert-success" role="alert"></div>
+        <div class="card">
+          <div class="fs-5 fw-light card-header">
+            Profile
+          </div>
+          <div class="card-body">
+            <div class="mb-3" style="margin: 0px">
+                <div class="row justify-content-left">
+                  <label for="display_name">Username:</label>
+                  <input [attr.disabled]="true" formControlName = "displayName" style="width: 100%" type="text" class="form-control" id="display_name" placeholder={{this.username}}>
+                  <small id="nameHelp" class="form-text text-muted">Username cannot be changed</small>
+                </div>
+            </div>
+
+
+            <div class="mb-3" style="margin: 0px">
+              <div  class="row justify-content-left">
+                <label for="displayName" class="form-label">Display Name:</label>
+                <input formControlName = "displayName" type="displayName" id="displayName" class="form-control" name="displayName" placeholder="Display Name">
+                <small id="displayNameHelp" class="form-text text-muted">Current Display Name: {{displayName}}</small>
+              </div>
+            </div>
+
+            <div class="mb-3" style="margin: 0px">
+              <div  class="row justify-content-left">
+                <label for="email" class="form-label">Email Address:</label>
+                <input formControlName = "email" type="email" id="email" class="form-control" name="email" placeholder="Email Address">
+                <small id="emailHelp" class="form-text text-muted">Current Email: {{profileEmail}}</small>
+                <p style="color: red; float: right;">*Changing the email doesn't change the username. You'll still need the same username to login</p>
+              </div>
+            </div>
+
+            <div class="mb-3" style="margin: 0px">
+              <div class="row justify-content-left">
+                <label for="mobile">Phone number:</label>
+                <input formControlName="mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="(123)123-1234"
+                       maxlength="10" required>
+                <small id="contactHelp" class="form-text text-muted">Current Contact No.: {{profileMobile}}</small>
+              </div>
+            </div>
+
+            <div class="mb-3" style="margin: 0px">
+              <div class="row justify-content-left">
+                <label for="zipcode" class="form-label">Zipcode:</label>
+                <input formControlName="zipcode" type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Ex: 12345"
+                       maxlength="5" pattern="[0-9]{5}">
+                <small id="zipCodeHelp" class="form-text text-muted">Current Zip Code: {{profileZipcode}}</small>
+              </div>
+            </div>
+
+            <div class="mb-3" style="margin: 0px">
+              <div class="row justify-content-left">
+                <label for="password" class="form-label">Password:</label>
+                <input [attr.disabled]="this.gid != ''?'' : null" formControlName="password" (input)="updateCPassword()" type="password" id="password" class="form-control" name="password" placeholder="Password">
+                <small id="passwordHelp" class="form-text text-muted">Current Password: {{display_password}}</small>
+              </div>
+            </div>
+
+            <div *ngIf="display_cpassword" class="mb-3" style="margin: 0px" id="div_cpassword">
+              <div  class="row justify-content-left">
+                <label for="cpassword" class="form-label">Confirm Password:</label>
+                <input formControlName="cpassword" type="password" id="cpassword" class="form-control" name="cpassword"
+                       placeholder="Confirm Password:">
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <input type="submit" class="btn btn-primary" value="Update" id="update" (click)="myUpdate()">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<header>
+  <nav>
+      <ul>
+          <li>
+            <a href="#" id="fb" title="Home">
+              <mat-icon>face</mat-icon>
+            </a>
+          </li>
+          <li>
+            <button id="search_btn" title="Search">
+              <mat-icon>search</mat-icon>
+            </button>
+          </li>
+
+          <li id="space2"></li>
+
+          <li>
+            <a class="active" title="Home" href="#" id="home" (click) = "switchToHome()">
+              <mat-icon>home</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a title="People" href="#" id="group">
+              <mat-icon>people_outline</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a title="Watch" href="#" id="tv">
+              <mat-icon>tv</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a title="Friend" href="#" id="friend">
+              <mat-icon>person_outline</mat-icon>
+            </a>
+          </li>
+          <li id="space1"></li>
+          <li>
+            <button title="Add" id="btn_plus">
+              <mat-icon>person_add</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button title="Message" id="btn_msg">
+              <mat-icon>message</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button title="Notification" id="btn_bell">
+              <mat-icon>notification_important</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button title="Profile" id="btn_profile" (click) = "switchToProfile()">
+              <a href="profile"><mat-icon>person</mat-icon></a>
+            </button>
+          </li>
+          <li>
+            <button title="Logout" id="btn_logout" (click) = "logout()">
+              <a href="login"><mat-icon>power_settings_new</mat-icon></a>
+            </button>
+          </li>
+      </ul>
+  </nav>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,99 @@
+<div class="container" style="overflow: hidden;">
+  <div class="row" style="margin: 10px;">
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <b>
+            Status Update
+          </b>
+        </div>
+        <div class="card-body">
+          <div>
+            <img class="mt-0 user-img" src="{{profileImage}}">
+            <h2 class="mb-0" style="color: blueviolet">{{this.displayName}}</h2>
+            <p style = "color: red;">Status</p>
+            <p class="mb-0">{{catchPhrase}}</p>
+            <form clrForm [formGroup]="updateStatusForm">
+              <div class="input-group mt-2">
+                <div class="form-floating flex-grow-1">
+                  <input required formControlName="headline" type="text" id="update_status" class="form-control" name="update_status" placeholder="Update status">
+                </div>
+                <button class="input-group-text btn btn-primary" (click) = "updateStatus()">Update!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-header">
+          <b>
+            Friends
+          </b>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <form clrForm [formGroup]="addFriendForm">
+              <div class="input-group">
+                <div class="form-floating flex-grow-1">
+                  <input type="text" formControlName="username" id="search_friend" class="form-control" name="search_friend" placeholder="Add a friend (Enter username)">
+                </div>
+                <button class="input-group-text btn btn-primary" (click)="addFriend()">Add</button>
+              </div>
+              <div *ngIf="!addFriendExists" style="color: red">User Not Found</div>
+            </form>
+          </li>
+          <li *ngFor="let friend of friends" class="list-group-item">
+            <div>
+              <div *ngIf="friend.image != ''" class="slides">
+                <img class="slide showing friendImage" src="{{friend.image}}" alt="User Avatar not available">
+              </div>
+              <h2 class="mb-0">{{friend.username}}</h2>
+              <button class="btn btn-warning mb-2" style="width: 100%" (click)="removeFollowing(friend)">Unfollow</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          <b>
+            New Post
+          </b>
+        </div>
+        <div class="card-body">
+          <form clrForm [formGroup]="addPostForm">
+            <div class="mb-3">
+              <label for="post_title2">Title</label>
+              <input required formControlName="title" type="text" id="post_title2" class="form-control" name="post_title2" placeholder="Title">
+            </div>
+            <div class="form-floating mb-3">
+              <label for="floatingTextarea2">Your Post Here</label>
+              <textarea required formControlName="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            </div>
+            <div class="form-floating mb-3">
+              <label for="floatingTextarea2">Add Image</label><br>
+              <input class="mb-3" style="border: 0;" id="file_pic" (change)="selectFile($event)" type="file">
+            </div>
+            <button class="btn btn-success mb-2" style="width: 49%; margin-right: 1%" (click)="addPost()">Post</button>
+            <input value="Clear" type="reset" class="btn btn-warning mb-2" style="width: 49%; margin-left: 1%">
+          </form>
+        </div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <form clrForm [formGroup]="searchForm">
+          <input required formControlName="searchText" type="text" id="searchForm" class="form-control" (keyup)="searchPosts()" name="search" placeholder="Search from posts"><br>
+        </form>
+      </div>
+
+
+      <div id="feed">
+        <div *ngFor="let post of filteredPosts">
+          <app-posts [currentUser]="this.username" [comments]="post.comments" [username]="post.username" [postId] = "post.id" [timestamp]="post.timestamp" [title]="post.title" [text]="post.text" [image]="post.image"></app-posts>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+    <testsuite name="Validate Article functionality" errors="0" tests="4" failures="0" time="0.363" timestamp="2021-11-18T00:41:34">
+        <testcase classname="Validate Article functionality" name="should login user for article tests" time="0.088"></testcase>
+        <testcase classname="Validate Article functionality" name="should add a new article" time="0.063"></testcase>
+        <testcase classname="Validate Article functionality" name="should give all the articles for the current user" time="0.124"></testcase>
+        <testcase classname="Validate Article functionality" name="should give all the articles for the given user" time="0.088"></testcase>
+    </testsuite>
+    <testsuite name="Validate Profile functionality" errors="0" tests="4" failures="0" time="0.351" timestamp="2021-11-18T00:41:34">
+        <testcase classname="Validate Profile functionality" name="should login user for profile tests" time="0.069"></testcase>
+        <testcase classname="Validate Profile functionality" name="should update headline and verify the change" time="0.096"></testcase>
+        <testcase classname="Validate Profile functionality" name="should get headline with username as param" time="0.092"></testcase>
+        <testcase classname="Validate Profile functionality" name="should get headline without param" time="0.094"></testcase>
+    </testsuite>
+    <testsuite name="Validate Registration and Login functionality" errors="0" tests="3" failures="0" time="0.291" timestamp="2021-11-18T00:41:34">
+        <testcase classname="Validate Registration and Login functionality" name="should register a new user" time="0.217"></testcase>
+        <testcase classname="Validate Registration and Login functionality" name="should login user" time="0.051"></testcase>
+        <testcase classname="Validate Registration and Login functionality" name="should logout user" time="0.02"></testcase>
+    </testsuite>
+</testsuites>

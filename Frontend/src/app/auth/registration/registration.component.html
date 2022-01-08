@@ -1,0 +1,81 @@
+
+  <div class="card">
+    <div class="card-header" style="border-top: 2px solid green;">
+      <h1 class="col-12" style = "text-align: center; padding: 0%; margin: 0%;"><b><mat-icon>layers</mat-icon>New to InstaRice? Register!!</b></h1>
+    </div>
+    <form [formGroup]="registrationForm" id="registrationForm" style = "width: 100%; text-align: center; border: 2px solid green;">
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="displayName" class = "col-5" style = "text-align: left;">Display Name</label>
+                <input type="text" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="displayName" formControlName="displayName"/>
+                <div *ngIf="registrationForm.controls.displayName.errors" class="invalid-feedback">
+                    <div *ngIf="registrationForm.controls.displayName.touched">Username is required</div>
+                </div>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="Email" class = "col-5" style = "text-align: left;">E-Mail</label>
+                <input type="email" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="Email" formControlName="email"/>
+                <p style="color: red; float: right;">*Your email is your username when you login from the next time</p>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="phoneNumber" class = "col-5" style = "text-align: left;">Phone Number</label>
+                <input type="text" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" clrInput type="text" id="phoneNumber" formControlName="phoneNumber"/>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="dateOfBirth" class = "col-5" style = "text-align: left;">Date Of Birth</label>
+                <input type="date" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="dateOfBirth" formControlName="dateOfBirth"/>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="zipcode" class = "col-5" style = "text-align: left;">Zip Code</label>
+                <input type="text" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="zipcode" formControlName="zipcode"/>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="password" class = "col-5" style = "text-align: left;">Password</label>
+                <input type="password" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="password" formControlName="password"/>
+                <div *ngIf="registrationForm.controls.password.errors" class="invalid-feedback">
+                    <div *ngIf="registrationForm.controls.password.touched">Password is required</div>
+                </div>
+            </div>
+            <div class="form-control" style= "margin-top: 48px; border: none">
+                <label for="password" class = "col-5" style = "text-align: left;">Confirm Password</label>
+                <input type="password" class = "col-7" style = "text-align: left; border: none; border-bottom: 2px solid black;" id="confirmPassword" formControlName="confirmPassword"/>
+                <div *ngIf="registrationForm.controls.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="registrationForm.controls.confirmPassword.touched && registrationForm.value.password != null">Please Confirm Password</div>
+                </div>
+            </div>
+            <div class="form-control" style= "margin-top: 50px; border: none" id="register">
+                <button class="btn btn-success col-12" style = "text-align: center;" (click)="register()">
+                    Register
+                </button>
+            </div>
+    </form>
+  </div>
+  <br>
+  <div *ngIf="isUsernameAbsent" class="alert alert-danger" style="text-align: center;">
+    <strong>Empty!</strong>&nbsp;Please provide a Username
+  </div>
+  <div *ngIf="isDisplayNameAbsent" class="alert alert-danger" style="text-align: center;">
+    <strong>Empty!</strong>&nbsp;Please provide a Display Name
+  </div>
+  <div *ngIf="isPasswordAbsent" class="alert alert-danger" style="text-align: center;">
+    <strong>Empty!</strong>&nbsp;Please provide password
+  </div>
+  <div *ngIf="isConfirmPasswordAbsent" class="alert alert-danger" style="text-align: center;">
+    <strong>Empty!</strong>&nbsp;Please confirm password
+  </div>
+  <div *ngIf="invalidEmail" class="alert alert-danger" style="text-align: center;">
+    <strong>Invalid!</strong>&nbsp;Please enter a valid Email
+  </div>
+  <div *ngIf="invalidMobile" class="alert alert-danger" style="text-align: center;">
+    <strong>Invalid!</strong>&nbsp;Please enter a valid mobile
+  </div>
+  <div *ngIf="invalidZipCode" class="alert alert-danger" style="text-align: center;">
+    <strong>Invalid!</strong>&nbsp;Please enter a valid Zip Code
+  </div>
+  <div *ngIf="passwordConfirmIncorrect" class="alert alert-danger" style="text-align: center;">
+    <strong>No Match!</strong>&nbsp;Passwords don't match
+  </div>
+  <div *ngIf="userAlreadyexists" class="alert alert-danger" style="text-align: center;">
+    <strong>Already Taken!</strong>&nbsp;User Already Exists. Select a different email
+  </div>
+
+

@@ -1,0 +1,27 @@
+<div class="card mb-2 border-primary">
+  <div class="card-header"><b>{{username}}</b></div>
+  <div *ngIf="header == 'Image Post'" class="slides">
+    <img class="slide showing" src="{{image}}" alt="First slide">
+  </div>
+
+  <div class="card-body">
+    <h2>{{title}}</h2>
+    <p class="card-text">{{text}}<mat-icon *ngIf="currentUser == username" (click) = "editArticleOpenClose()" style="float: right;">edit</mat-icon></p>
+    <input *ngIf = "isEditArticleOpen" class="form-control" type="text" id="edit article" (keyup.enter)="pushArticleCommentChange($event)" placeholder="Edit article">
+    <button class="btn btn-primary mb-2 w-100">Like</button>
+    <button class="btn btn-primary mb-2 w-100" (click)="commentClick()">Comment</button>
+    <p class="card-text"><small class="text-muted">Last updated {{timeForPost}} ago</small></p>
+    <div *ngIf="isCommentsSectionOpen" class = "card mb-2 border-primary">
+      <textarea id="w3review" name="w3review" rows="2" placeholder="Enter your comment" #commentInput></textarea>
+      <button class = "btn btn-success" (click)="addComment(commentInput.value); commentInput.value = ''">comment</button>
+      <div class="card-header">Comments</div>
+      <div class="card-body" style="background-color: #E4E6EB">
+        <div *ngFor = "let comment of commentsForThisPost">
+          <p><b>{{comment.email}}</b></p>
+          <p>{{comment.comment}}<mat-icon *ngIf = "this.currentUser == comment.email" (click) = "editComment(comment)" style="float: right;">edit</mat-icon></p>
+          <input *ngIf = "comment.isEditCommentOpen" class="form-control" type="text" id="edit comment" (keyup.enter)="pushEditCommentChange(comment, $event)" placeholder="Edit comment">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
