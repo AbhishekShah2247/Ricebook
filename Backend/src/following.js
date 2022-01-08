@@ -2,7 +2,7 @@ const md5 = require('md5');
 const profileSchema = require('./Schema/profileSchema');
 const mongoose = require("mongoose");
 const Profile = mongoose.model('profile', profileSchema);
-const connectionString = 'mongodb+srv://test_user:test_user_pwd@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://your own username:your own password@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
 
 
 const getFollowing = (req, res) => {
