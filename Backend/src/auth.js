@@ -4,7 +4,7 @@ const userSchema = require('./Schema/userSchema');
 const profileSchema = require('./Schema/profileSchema');
 const Profile = mongoose.model('profile', profileSchema);
 const User = mongoose.model('user', userSchema);
-const connectionString = 'mongodb+srv://test_user:test_user_pwd@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://your own username:your own password@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
 const Passport = require('passport').Passport;
 const passport = new Passport();
 // const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
