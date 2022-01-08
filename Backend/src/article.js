@@ -4,7 +4,7 @@ const {response} = require("express");
 const profileSchema = require("./Schema/profileSchema");
 const Article = mongoose.model('article', articleSchema);
 const Profile = mongoose.model('profile', profileSchema);
-const connectionString = 'mongodb+srv://test_user:test_user_pwd@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://your own username:your own password@cluster0.kbgeg.mongodb.net/finalInstaRice?retryWrites=true&w=majority';
 const uploadImage = require('./uploadCloudinary.js').uploadImage;
 
 function getArticle(req, res) {
